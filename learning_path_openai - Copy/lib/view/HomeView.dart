@@ -150,8 +150,24 @@ class HomeView extends StatelessWidget {
 
               // --------------  Response  -------------------
 
-              BlocBuilder<AppBloc, AppState>(builder: (context, state) {
+              BlocConsumer<AppBloc, AppState>(listener: (context, state) {
+                if (state is LoadingState) {
+                  showDialog(
+                      context: context,
+                      builder: (context) => Center(
+                              child: CircularProgressIndicator(
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? const Color.fromARGB(255, 255, 255, 255)
+                                    : const Color.fromARGB(255, 31, 71, 104),
+                          )));
+                } else if (state is ErrorAppState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.errorMessage)));
+                }
+              }, builder: (context, state) {
                 if (state is UpdateAppState) {
+                  context.pop();
                   return Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.symmetric(horizontal: 20),

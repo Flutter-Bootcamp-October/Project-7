@@ -28,7 +28,21 @@ class SaveCoursesPath extends StatelessWidget {
                       ? const Color.fromARGB(255, 255, 255, 255)
                       : const Color.fromARGB(255, 31, 71, 104),
                 ))),
-        body: BlocBuilder<AppBloc, AppState>(builder: (context, state) {
+        body: BlocConsumer<AppBloc, AppState>(listener: (context, state) {
+          if (state is LoadingState) {
+            showDialog(
+                context: context,
+                builder: (context) => Center(
+                        child: CircularProgressIndicator(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color.fromARGB(255, 255, 255, 255)
+                          : const Color.fromARGB(255, 31, 71, 104),
+                    )));
+          } else if (state is ErrorAppState) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.errorMessage)));
+          }
+        }, builder: (context, state) {
           if (state is GetCoursesPathAppState) {
             return SingleChildScrollView(
               scrollDirection: Axis.vertical,

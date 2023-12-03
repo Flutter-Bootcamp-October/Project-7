@@ -11,7 +11,7 @@ class ApiNetworking {
       var response = await http.post(urlAPI,
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer "
+            "Authorization": "Bearer"
           },
           body: json.encode({
             "model": "gpt-3.5-turbo",

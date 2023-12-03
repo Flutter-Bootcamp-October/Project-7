@@ -9,32 +9,40 @@ String response = '';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(InitialAppState()) {
-    try {
-      on<UpdateAppEvent>((event, emit) async {
+    on<UpdateAppEvent>((event, emit) async {
+      emit(LoadingState());
+
+      try {
         final answerGPT =
             await ApiNetworking().connectionGPT(courseName: event.courseName);
         // print("response from BLOC ###### ${response}");
         response = answerGPT;
+
         emit(UpdateAppState(response));
-      });
+      } catch (error) {
+        emit(ErrorAppState(error.toString()));
+      }
+    });
 
-      on<AddFavPathCourseAppEvent>((event, emit) async {
-        await SupabaseFunction().addCoursePath(
-            courseName: event.courseName, coursePath: event.coursePath);
-      });
+    on<AddFavPathCourseAppEvent>((event, emit) async {
+      await SupabaseFunction().addCoursePath(
+          courseName: event.courseName, coursePath: event.coursePath);
+    });
 
-      on<GetFavPathCourseAppEvent>((event, emit) async {
-        // print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%666666666');
-
+    on<GetFavPathCourseAppEvent>((event, emit) async {
+      try {
         final List<CourseModel> coursePath =
             await SupabaseFunction().getCoursePath();
-        // print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%111111111111');
-        // print(coursePath);
 
         emit(GetCoursesPathAppState(coursePath));
-      });
+      } catch (error) {
+        emit(ErrorAppState(error.toString()));
+      }
+    });
 
-      on<DeletePathCourseAppEvent>((event, emit) async {
+    on<DeletePathCourseAppEvent>((event, emit) async {
+
+      try {
         await SupabaseFunction().deleteCoursePath(
           courseID: event.courseID,
         );
@@ -43,9 +51,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
             await SupabaseFunction().getCoursePath();
 
         emit(GetCoursesPathAppState(coursePath));
-      });
-    } catch (error) {
-      ErrorAppState(error.toString());
-    }
+      } catch (error) {
+        emit(ErrorAppState(error.toString()));
+      }
+    });
   }
 }

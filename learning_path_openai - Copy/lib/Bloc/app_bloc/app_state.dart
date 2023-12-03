@@ -4,6 +4,8 @@ abstract class AppState {}
 
 final class InitialAppState extends AppState {}
 
+final class LoadingState extends AppState {}
+
 final class UpdateAppState extends AppState {
   final String responeContent;
 
