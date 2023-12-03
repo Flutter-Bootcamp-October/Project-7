@@ -10,3 +10,6 @@ Finance application which provides advices to the user about financial by AI, an
  
 **favorite Screen**
 ![Screenshot_1701582265](https://github.com/3badiiM/Project-5/assets/115943308/c9452f16-3835-4fb0-9184-021edb48835f)
+
+## Note:
+Add your own keys at supabase_api.dart and open_ai.dart.
