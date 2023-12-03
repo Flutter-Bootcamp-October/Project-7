@@ -1,0 +1,30 @@
+{
+    "welcomeScreen": {
+        "welcomeStatement": "Welcome",
+        "welcomeButton": "Continue",
+        "welcomeButton2": "الاستمرار باللغة العربية"
+    },
+    "RegestrationScreen": {
+        "title": "Let's personalize your experiance..",
+        "nameStatement": "Your Name:",
+        "hintText": "Enter Your Name",
+        "genderStatement": "Select Your Gender:",
+        "RegButton": "Continue"
+    },
+    "TherapistScreen": {
+        "choiceStatement": "Choose you Therapist",
+        "saraTitle": "Sara",
+        "ahmadTitle": "Ahmad",
+        "ahmadcard": "Ahmad is an AI Therapist that can help you with your everday mental health. He listens to you and provides consultaion. Ahmad speacialized in anexity disorder treatment and can provide new world stratigies to help patients.",
+        "saracard": "Sara is an AI Therapist that can help you with your everday mental health. She listens to you and provides consultaion. Sara speacialized in depression treatment and can provide new world stratigies to help patients.",
+        "checkboxSara": "Let Sara know I have depression.",
+        "checkboxAhmad": "Let Ahmad know I have Anexity.",
+        "therapistLang": "I want my Therapist to only speak Arabic.",
+        "therapistButton": "Go to session"
+    },
+    "ChatScreen": {
+        "appBarTitle": "Your Private Session",
+        "hintText": "What's on your mind?",
+        "chatButton": "Send"
+    }
+}
