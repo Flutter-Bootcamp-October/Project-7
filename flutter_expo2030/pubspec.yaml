@@ -1,0 +1,42 @@
+name: flutter_expo2030
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  adaptive_theme: ^3.4.1
+  carousel_slider: ^4.2.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  glass: ^1.0.2+1
+  http: ^1.1.2
+  page_transition: ^2.1.0
+  supabase_flutter: ^1.10.25
+  timeline_tile: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - lib\assets\images\Riyadh_Expo_2030-poster.jpg
+  - lib\assets\images\mbs.jpeg
+  - lib\assets\images\mbs2.jpeg
+  - lib\assets\images\1.png
+  - lib\assets\images\2.jpg
+  - lib\assets\images\3.jpeg
+  - lib\assets\images\4.jpg
+  - lib\assets\images\5.jpg
+  - lib\assets\images\6.jpg
+  - lib\assets\images\7.webp
+  - lib\assets\images\8.png
+  - lib\assets\images\9.jpg
+  - lib\assets\images\10.jpeg
+
