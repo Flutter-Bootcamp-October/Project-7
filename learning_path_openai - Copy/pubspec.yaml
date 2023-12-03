@@ -1,0 +1,30 @@
+name: learning_path_openai
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  flutter_dotenv: ^5.1.0
+  http: ^1.1.2
+  supabase_flutter: ^1.10.25
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Tinos
+      fonts:
+        - asset: fonts/Tinos-Regular.ttf
+  assets:
+    - assets/
+    - .env
